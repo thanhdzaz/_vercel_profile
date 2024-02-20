@@ -4,10 +4,10 @@
   >
     <h1 class="text-[1rem] uppercase">&gt;Contact</h1>
     <div class="mt-[20px] flex flex-col">
-      <a class="text-center" href="mailto:hi.unkuz@gmail.com"
-        >hi.unkuz@gmail.com</a
+      <a class="text-center" href="mailto:camvanthanh.job@gmail.com"
+        >camvanthanh.job@gmail.com</a
       >
-      <a class="text-center" href="tel:+84888388859">+84 888388859</a>
+      <a class="text-center" href="tel:+84966548626">+84 966548626</a>
     </div>
     <div class="mt-[10px] flex gap-[20px] [&>svg]:cursor-pointer">
       <div title="I'm not available">
@@ -18,15 +18,7 @@
         <Twitter_invert class="!size-[17px] cursor-not-allowed" />
       </div>
       <NuxtLink
-        to="https://unkuz.gumroad.com/"
-        title="Gumroad"
-        target="_blank"
-        external
-      >
-        <Gumroad class="!size-[17px]" />
-      </NuxtLink>
-      <NuxtLink
-        to="https://www.instagram.com/unkuz"
+        to="https://www.instagram.com/thanh.dz.az"
         title="Instagram"
         target="_blank"
         external
@@ -34,7 +26,7 @@
         <Instagram_invert class="!size-[17px]" />
       </NuxtLink>
       <NuxtLink
-        to="https://github.com/unkuz"
+        to="https://github.com/thanhdzaz"
         title="Github"
         target="_blank"
         external

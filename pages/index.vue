@@ -2,7 +2,7 @@
   <div
     class="flex min-h-screen w-full flex-col items-center justify-center gap-[20px] pt-[30px]"
   >
-    <div class="uppercase">&gt;Side Project</div>
+    <div class="uppercase">&gt;HomePage</div>
 
     <NuxtImg
       :src="dogEyesRight ? '/doge_right.png' : '/doge_left.png'"
@@ -14,6 +14,9 @@
 
 <script setup lang="ts">
 const textUpdate = ref('Data is updating ...');
+setTimeout(() => {
+  textUpdate.value = 'No thing new!!'
+}, 5000);
 const dogEyesRight = ref(true);
 const { x } = useMouse();
 

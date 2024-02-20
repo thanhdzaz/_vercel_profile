@@ -5,12 +5,11 @@
     <h1 class="text-[1rem] uppercase">&gt;About</h1>
     <div class="">
       <p class="text-balance text-justify indent-8">
-        &gt;Unkuz, also known as Nguyen Ba Cuong, is a creative web developer
-        with 2.5+ years of experience working in building website. Proficient in
+        &gt;Sloppy, also known as Cam Van Thanh, is a creative web developer
+        with 3+ years of experience working in building website. Proficient in
         HTML, CSS, JavaScript, TypeScript, Python,...: plus modern libraries,
         frameworks. Well-versed in requirements aith an in-depth knowledge. I'm
-        currently working in Hanoi as a Software Engineering, while also taking
-        on freelance projects that pique my interest. Here is the list of
+        currently working in Hanoi as a Software Engineering. Here is the list of
         technologies that I have experience with:
       </p>
 
@@ -112,13 +111,6 @@
           </NuxtLink>
         </div>
       </div>
-      <p class="text-balance text-justify indent-8">
-        &gt;Besides being a software engineer, I am also quite interested in
-        becoming a music producer. In recent months, I've been inspired by the
-        future bounce music genre. Producers who inspire me at the moment are:
-        rentz, bayze, bad reputation, dirty palm, ball vrp,...Hopefully in 2024
-        I can release a song sound something similar 🤣
-      </p>
     </div>
   </div>
 </template>

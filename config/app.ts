@@ -1,6 +1,6 @@
 export const navigation = [
   {
-    name: 'work',
+    name: 'home',
     path: '/',
   },
   {

@@ -205,9 +205,9 @@ onMounted(async () => {
 
   isReady.value = true;
 
-  state.track.src = '/Ball VRP & Novel Soul - Fake Colors (128 kbps).mp3';
-  state.title = `DG812 - 8 Bit ♪`;
-  state.thumbnail = `./doge_right.png`;
+  state.track.src = data.url || `/Ball VRP & Novel Soul - Fake Colors (128 kbps).mp3`;
+  state.title = data.title || `DG812 - 8 Bit ♪`;
+  state.thumbnail = data.thumbnail || `./doge_right.png`;
 });
 
 const state = reactive({
