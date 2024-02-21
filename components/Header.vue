@@ -27,7 +27,7 @@ const magicName = (selectedPath: string, routePath: string, name: string) =>
     </div>
     <div class="flex gap-[20px] [&>div]:hover:cursor-pointer">
       <NightMode @click="globalS.toggleDarkMode" />
-      <NuxtLink v-for="(i, idx) in navigation" :to="i.path" :key="idx" replace>
+      <NuxtLink v-for="(i, idx) in navigation" :to="i.path" :key="idx" replace class="flex items-center">
         <div
           :class="[
             ' uppercase',

@@ -4,9 +4,7 @@
   >
     <h1 class="text-[1rem] uppercase">&gt;Contact</h1>
     <div class="mt-[20px] flex flex-col">
-      <a class="text-center" href="mailto:camvanthanh.job@gmail.com"
-        >camvanthanh.job@gmail.com</a
-      >
+      <a class="text-center" href="mailto:camvanthanh.job@gmail.com">camvanthanh.job@gmail.com</a>
       <a class="text-center" href="tel:+84966548626">+84 966548626</a>
     </div>
     <div class="mt-[10px] flex gap-[20px] [&>svg]:cursor-pointer">
