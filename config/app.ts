@@ -11,4 +11,8 @@ export const navigation = [
     name: 'contact',
     path: '/contact',
   },
+  {
+    name: 'Demo',
+    path: '/crush',
+  },
 ];

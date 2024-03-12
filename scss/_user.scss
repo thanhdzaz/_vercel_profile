@@ -1,0 +1,19 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  user-select: none;
+}
+
+
+button.no-btn,button.yes-btn {
+  width: 40px;
+  transition: all 1s ease-in-out;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 13px;
+}
