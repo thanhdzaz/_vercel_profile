@@ -29,7 +29,7 @@
         ref="audioEl"
         controls
         class="hidden"
-        src="/Ball VRP & Novel Soul - Fake Colors (128 kbps).mp3"
+        src="/Dion Timmer  The Best of Me Official.mp3"
         :autoplay="false"
       />
       <canvas ref="canvasRef" class="h-[25px] w-[100px] sm:w-[120px]" />
@@ -199,14 +199,14 @@ onMounted(async () => {
     state.isPlay = false;
   };
   const res = await axios.post('/api/proxy-yt', {
-    url: 'https://www.youtube.com/watch?v=oX4uaarflA4&list=RDMM&index=2',
+    url: 'https://youtu.be/HHZ1aCwtPWI',
   });
   const data = res.data;
 
   isReady.value = true;
 
-  state.track.src = data.url || `/Ball VRP & Novel Soul - Fake Colors (128 kbps).mp3`;
-  state.title = data.title || `DG812 - 8 Bit ♪`;
+  state.track.src = data.url || `/Dion Timmer  The Best of Me Official.mp3`;
+  state.title = data.title || `Dion Timmer  The Best of Me Official`;
   state.thumbnail = data.thumbnail || `./doge_right.png`;
 });
 
