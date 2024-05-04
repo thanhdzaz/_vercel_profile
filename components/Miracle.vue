@@ -23,13 +23,13 @@
         />
       </div>
       <div class="flex flex-1 flex-col text-[.7rem] font-bold text-black">
-        <p class="line-clamp-2">{{ state.title }}</p>
+        <a class="line-clamp-2" :href="state.url" target="_blank">{{ state.title }}</a>
       </div>
       <audio
         ref="audioEl"
         controls
         class="hidden"
-        src="/Dion Timmer  The Best of Me Official.mp3"
+        src="/TROUBLE.mp3"
         :autoplay="false"
       />
       <canvas ref="canvasRef" class="h-[25px] w-[100px] sm:w-[120px]" />
@@ -190,6 +190,7 @@ const audioSource = ref<MediaElementAudioSourceNode>();
 const ctxCanvas = ref<any>(null);
 const { space } = useMagicKeys();
 
+
 watch(space, (v) => v && togglePlay());
 
 onMounted(async () => {
@@ -199,14 +200,14 @@ onMounted(async () => {
     state.isPlay = false;
   };
   const res = await axios.post('/api/proxy-yt', {
-    url: 'https://youtu.be/HHZ1aCwtPWI',
+    url: state.url,
   });
   const data = res.data;
 
   isReady.value = true;
 
-  state.track.src = data.url || `/Dion Timmer  The Best of Me Official.mp3`;
-  state.title = data.title || `Dion Timmer  The Best of Me Official`;
+  state.track.src = data.url || `/TROUBLE.mp3`;
+  state.title = data.title || `R3HAB TROUBLE FTVÉRITÉ MIKE WILLIAMS REMIX 1`;
   state.thumbnail = data.thumbnail || `./doge_right.png`;
 });
 
@@ -215,7 +216,9 @@ const state = reactive({
   title: '',
   thumbnail: '',
   isPlay: false,
+  url: 'https://www.youtube.com/watch?v=HUdVDRp5qAw'
 });
+
 
 const togglePlay = () => {
   if (!audioEl.value?.paused) {
