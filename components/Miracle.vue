@@ -200,11 +200,7 @@ onMounted(async () => {
     state.isPlay = false;
   };
   const res = await axios.post('/api/proxy-yt', {
-<<<<<<< HEAD
-    url: 'https://youtu.be/NVfIMEpSqz4',
-=======
     url: state.url,
->>>>>>> 712f3915b5cf7401a78b4b4d76760dafbedc17b8
   });
   const data = res.data;
 
@@ -220,7 +216,7 @@ const state = reactive({
   title: '',
   thumbnail: '',
   isPlay: false,
-  url: 'https://www.youtube.com/watch?v=HUdVDRp5qAw'
+  url: 'https://youtu.be/NVfIMEpSqz4'
 });
 
 
