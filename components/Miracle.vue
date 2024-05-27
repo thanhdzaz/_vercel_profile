@@ -23,7 +23,7 @@
         />
       </div>
       <div class="flex flex-1 flex-col text-[.7rem] font-bold text-black">
-        <p class="line-clamp-2">{{ state.title }}</p>
+        <a class="line-clamp-2" :href="state.url" target="_blank">{{ state.title }}</a>
       </div>
       <audio
         ref="audioEl"
@@ -190,6 +190,7 @@ const audioSource = ref<MediaElementAudioSourceNode>();
 const ctxCanvas = ref<any>(null);
 const { space } = useMagicKeys();
 
+
 watch(space, (v) => v && togglePlay());
 
 onMounted(async () => {
@@ -199,14 +200,18 @@ onMounted(async () => {
     state.isPlay = false;
   };
   const res = await axios.post('/api/proxy-yt', {
+<<<<<<< HEAD
     url: 'https://youtu.be/NVfIMEpSqz4',
+=======
+    url: state.url,
+>>>>>>> 712f3915b5cf7401a78b4b4d76760dafbedc17b8
   });
   const data = res.data;
 
   isReady.value = true;
 
-  state.track.src = data.url || `/Ball VRP & Novel Soul - Fake Colors (128 kbps).mp3`;
-  state.title = data.title || `DG812 - 8 Bit ♪`;
+  state.track.src = data.url || `/TROUBLE.mp3`;
+  state.title = data.title || `R3HAB TROUBLE FTVÉRITÉ MIKE WILLIAMS REMIX 1`;
   state.thumbnail = data.thumbnail || `./doge_right.png`;
 });
 
@@ -215,7 +220,9 @@ const state = reactive({
   title: '',
   thumbnail: '',
   isPlay: false,
+  url: 'https://www.youtube.com/watch?v=HUdVDRp5qAw'
 });
+
 
 const togglePlay = () => {
   if (!audioEl.value?.paused) {

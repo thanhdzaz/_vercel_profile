@@ -20,7 +20,7 @@ const magicName = (selectedPath: string, routePath: string, name: string) =>
     >
       <NuxtLink to="/" replace>
         <Sloppy
-          class="!mb-0 !h-auto !w-[35px] dark:invert [&>path]:!fill-none"
+          class="!mb-0 !h-auto !w-[35px] dark:invert [polygon]:!fill-none"
         />
         <!-- <div :class="['select-none text-[1.7rem] tracking-widest']">Sloppy</div> -->
       </NuxtLink>
