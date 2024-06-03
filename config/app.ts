@@ -15,4 +15,8 @@ export const navigation = [
     name: 'Demo',
     path: '/crush',
   },
+  {
+    name: 'Game',
+    path: '/game',
+  },
 ];

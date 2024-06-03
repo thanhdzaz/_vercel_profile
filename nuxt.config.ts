@@ -117,6 +117,12 @@ export default defineNuxtConfig({
             'Sloppy - Web developer',
         },
       ],
+      script: [
+        {
+          src: '/pixel.min.js',
+          body: false,
+        }
+      ]
     },
     pageTransition: { name: 'page', mode: 'default' },
     layoutTransition: { name: 'layout', mode: 'default' },
