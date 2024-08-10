@@ -1,175 +1,65 @@
 <template>
-  <div
-    :class="[
-      'flex h-[60px] w-[calc(100vw-40px)] items-center rounded-[10px] !bg-[#34d0ff] p-[5px] [box-shadow:3px_3px_10px_#0000007f] sm:h-[50px] sm:w-[400px]',
-      {
-        'w-[60px] justify-center sm:w-[50px]': !isReady,
-      },
-    ]"
-  >
-    <div
-      :class="[
-        'flex h-full w-full items-center gap-[10px]',
-        { 'hidden ': !isReady },
-      ]"
-    >
-      <div
-        class="aspect-square h-full overflow-hidden rounded-[7px] bg-fuchsia-200"
-      >
-        <img
-          :src="state.thumbnail"
-          class="h-full w-full object-cover"
-          :alt="state.title"
-        />
+  <div :class="[
+    'flex h-[60px] w-[calc(100vw-40px)] items-center rounded-[10px] !bg-[#34d0ff] p-[5px] [box-shadow:3px_3px_10px_#0000007f] sm:h-[50px] sm:w-[400px]',
+    {
+      'w-[60px] justify-center sm:w-[50px]': !isReady,
+    },
+  ]">
+    <div :class="[
+      'flex h-full w-full items-center gap-[10px]',
+      { 'hidden ': !isReady },
+    ]">
+      <div class="aspect-square h-full overflow-hidden rounded-[7px] bg-fuchsia-200">
+        <img :src="state.thumbnail" class="h-full w-full object-cover" :alt="state.title" />
       </div>
       <div class="flex flex-1 flex-col text-[.7rem] font-bold text-black">
         <a class="line-clamp-2" :href="state.url" target="_blank">{{ state.title }}</a>
       </div>
-      <audio
-        ref="audioEl"
-        controls
-        class="hidden"
-        src="/CHASHKAKEFIRA DJ PXRPLE  KOKIYO.mp3"
-        :autoplay="false"
-      />
+      <audio ref="audioEl" controls class="hidden" src="/Dion Timmer  The Best of Me Official.mp3" :autoplay="false" />
       <canvas ref="canvasRef" class="h-[25px] w-[100px] sm:w-[120px]" />
       <div class="mr-[5px] flex gap-[10px] *:cursor-pointer">
         <div @click="togglePlay" class="[*>path]:fill-black *:w-[20px]">
-          <svg
-            v-if="!state.isPlay"
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="black"
-              d="M10.396 18.433L17 12l-6.604-6.433A2 2 0 0 0 7 7v10a2 2 0 0 0 3.396 1.433"
-            />
+          <svg v-if="!state.isPlay" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+            <path fill="black" d="M10.396 18.433L17 12l-6.604-6.433A2 2 0 0 0 7 7v10a2 2 0 0 0 3.396 1.433" />
           </svg>
-          <svg
-            v-else
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="black"
-              d="M8 6a2 2 0 0 0-2 2v8a2 2 0 0 0 4 0V8a2 2 0 0 0-2-2m7 0a2 2 0 0 0-2 2v8a2 2 0 0 0 4 0V8a2 2 0 0 0-2-2"
-            />
+          <svg v-else xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+            <path fill="black"
+              d="M8 6a2 2 0 0 0-2 2v8a2 2 0 0 0 4 0V8a2 2 0 0 0-2-2m7 0a2 2 0 0 0-2 2v8a2 2 0 0 0 4 0V8a2 2 0 0 0-2-2" />
           </svg>
         </div>
       </div>
     </div>
     <div v-if="!isReady">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="currentColor"
-          d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z"
-          transform="matrix(0 0 0 0 12 12)"
-        >
-          <animateTransform
-            id="svgSpinnersPulseRings30"
-            attributeName="transform"
-            begin="0;svgSpinnersPulseRings32.begin+0.4s"
-            calcMode="spline"
-            dur="1.2s"
-            keySplines=".52,.6,.25,.99"
-            type="translate"
-            values="12 12;0 0"
-          />
-          <animateTransform
-            additive="sum"
-            attributeName="transform"
-            begin="0;svgSpinnersPulseRings32.begin+0.4s"
-            calcMode="spline"
-            dur="1.2s"
-            keySplines=".52,.6,.25,.99"
-            type="scale"
-            values="0;1"
-          />
-          <animate
-            attributeName="opacity"
-            begin="0;svgSpinnersPulseRings32.begin+0.4s"
-            calcMode="spline"
-            dur="1.2s"
-            keySplines=".52,.6,.25,.99"
-            values="1;0"
-          />
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z"
+          transform="matrix(0 0 0 0 12 12)">
+          <animateTransform id="svgSpinnersPulseRings30" attributeName="transform"
+            begin="0;svgSpinnersPulseRings32.begin+0.4s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99"
+            type="translate" values="12 12;0 0" />
+          <animateTransform additive="sum" attributeName="transform" begin="0;svgSpinnersPulseRings32.begin+0.4s"
+            calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" type="scale" values="0;1" />
+          <animate attributeName="opacity" begin="0;svgSpinnersPulseRings32.begin+0.4s" calcMode="spline" dur="1.2s"
+            keySplines=".52,.6,.25,.99" values="1;0" />
         </path>
-        <path
-          fill="currentColor"
-          d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z"
-          transform="matrix(0 0 0 0 12 12)"
-        >
-          <animateTransform
-            id="svgSpinnersPulseRings31"
-            attributeName="transform"
-            begin="svgSpinnersPulseRings30.begin+0.4s"
-            calcMode="spline"
-            dur="1.2s"
-            keySplines=".52,.6,.25,.99"
-            type="translate"
-            values="12 12;0 0"
-          />
-          <animateTransform
-            additive="sum"
-            attributeName="transform"
-            begin="svgSpinnersPulseRings30.begin+0.4s"
-            calcMode="spline"
-            dur="1.2s"
-            keySplines=".52,.6,.25,.99"
-            type="scale"
-            values="0;1"
-          />
-          <animate
-            attributeName="opacity"
-            begin="svgSpinnersPulseRings30.begin+0.4s"
-            calcMode="spline"
-            dur="1.2s"
-            keySplines=".52,.6,.25,.99"
-            values="1;0"
-          />
+        <path fill="currentColor" d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z"
+          transform="matrix(0 0 0 0 12 12)">
+          <animateTransform id="svgSpinnersPulseRings31" attributeName="transform"
+            begin="svgSpinnersPulseRings30.begin+0.4s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99"
+            type="translate" values="12 12;0 0" />
+          <animateTransform additive="sum" attributeName="transform" begin="svgSpinnersPulseRings30.begin+0.4s"
+            calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" type="scale" values="0;1" />
+          <animate attributeName="opacity" begin="svgSpinnersPulseRings30.begin+0.4s" calcMode="spline" dur="1.2s"
+            keySplines=".52,.6,.25,.99" values="1;0" />
         </path>
-        <path
-          fill="currentColor"
-          d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z"
-          transform="matrix(0 0 0 0 12 12)"
-        >
-          <animateTransform
-            id="svgSpinnersPulseRings32"
-            attributeName="transform"
-            begin="svgSpinnersPulseRings30.begin+0.8s"
-            calcMode="spline"
-            dur="1.2s"
-            keySplines=".52,.6,.25,.99"
-            type="translate"
-            values="12 12;0 0"
-          />
-          <animateTransform
-            additive="sum"
-            attributeName="transform"
-            begin="svgSpinnersPulseRings30.begin+0.8s"
-            calcMode="spline"
-            dur="1.2s"
-            keySplines=".52,.6,.25,.99"
-            type="scale"
-            values="0;1"
-          />
-          <animate
-            attributeName="opacity"
-            begin="svgSpinnersPulseRings30.begin+0.8s"
-            calcMode="spline"
-            dur="1.2s"
-            keySplines=".52,.6,.25,.99"
-            values="1;0"
-          />
+        <path fill="currentColor" d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z"
+          transform="matrix(0 0 0 0 12 12)">
+          <animateTransform id="svgSpinnersPulseRings32" attributeName="transform"
+            begin="svgSpinnersPulseRings30.begin+0.8s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99"
+            type="translate" values="12 12;0 0" />
+          <animateTransform additive="sum" attributeName="transform" begin="svgSpinnersPulseRings30.begin+0.8s"
+            calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" type="scale" values="0;1" />
+          <animate attributeName="opacity" begin="svgSpinnersPulseRings30.begin+0.8s" calcMode="spline" dur="1.2s"
+            keySplines=".52,.6,.25,.99" values="1;0" />
         </path>
       </svg>
     </div>
@@ -178,8 +68,11 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import axios from 'axios';
 import { useMagicKeys } from '@vueuse/core';
+
+interface IData {
+  [key: string]: string
+}
 
 const isReady = ref(false);
 
@@ -199,15 +92,13 @@ onMounted(async () => {
   audioEl.value!.onended = function () {
     state.isPlay = false;
   };
-  const res = await axios.post('/api/proxy-yt', {
-    url: state.url,
-  });
-  const data = res.data;
+
+  const data: IData = {};
 
   isReady.value = true;
 
-  state.track.src = data.url || `/TROUBLE.mp3`;
-  state.title = data.title || `R3HAB TROUBLE FTVÉRITÉ MIKE WILLIAMS REMIX 1`;
+  state.track.src = data.url || `/Dion Timmer  The Best of Me Official.mp3`;
+  state.title = data.title || `Dion Timmer  The Best of Me Official`;
   state.thumbnail = data.thumbnail || `./doge_right.png`;
 });
 

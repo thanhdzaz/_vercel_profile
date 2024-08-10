@@ -1,12 +1,37 @@
 <template>
-  <div
-    class="flex min-h-screen w-full flex-col items-center justify-center gap-[20px] pt-[30px]"
-  >
+  <div class="flex min-h-screen w-full flex-col items-center justify-center gap-[20px] pt-[30px]">
     <div id="game_container" style="width: 600px; height: 400px;position: relative" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { useMagicKeys } from '@vueuse/core';
+
+const keyMap: any = {
+  'w': { key: 'ArrowUp', code: 'ArrowUp', keyCode: 38, which: 38 },
+  'a': { key: 'ArrowLeft', code: 'ArrowLeft', keyCode: 37, which: 37 },
+  's': { key: 'ArrowDown', code: 'ArrowDown', keyCode: 40, which: 40 },
+  'd': { key: 'ArrowRight', code: 'ArrowRight', keyCode: 39, which: 39 }
+};
+
+
+document.addEventListener('keydown', (event) => {
+  if (keyMap[event.key]) {
+    // Create a new KeyboardEvent for the left arrow key
+    let arrow = new KeyboardEvent('keydown', { ...keyMap[event.key], bubbles: true });
+    // Dispatch the event
+    document.dispatchEvent(arrow);
+  }
+})
+
+document.addEventListener('keyup', (event) => {
+  if (keyMap[event.key]) {
+    let arrowUp = new KeyboardEvent('keyup', { ...keyMap[event.key], bubbles: true });
+    // Dispatch the event
+    document.dispatchEvent(arrowUp);
+  }
+})
+
 setTimeout(() => {
   var game = new PixelJS.Engine();
   game.init({
@@ -36,7 +61,7 @@ setTimeout(() => {
   player.velocity = { x: 100, y: 100 };
   player.asset = new PixelJS.AnimatedSprite();
   player.asset.prepare({
-    name: 'char.png',
+    name: 'char-2.png',
     frames: 3,
     rows: 4,
     speed: 100,
@@ -49,7 +74,7 @@ setTimeout(() => {
   coin.size = { width: 12, height: 16 };
   coin.asset = new PixelJS.AnimatedSprite();
   coin.asset.prepare({
-    name: 'coin.png',
+    name: 'coin-2.png',
     frames: 8,
     rows: 1,
     speed: 80,
@@ -59,7 +84,7 @@ setTimeout(() => {
   var collectSound = game.createSound('collect');
   collectSound.prepare({ name: 'coin.mp3' });
 
-  player.onCollide(function(entity) {
+  player.onCollide(function (entity: PixelJS.Sprite) {
     if (entity === coin) {
       collectSound.play();
       coin.pos = {
@@ -70,10 +95,10 @@ setTimeout(() => {
       score += 1;
       scoreLayer.redraw = true;
       scoreLayer.drawText(
-        'Coins: ' + score,
+        'SCORE: ' + score,
         25,
         25,
-        '14pt "August", Helvetica, sans-serif',
+        '13px Cuz',
         '#e5e7eb',
         'left'
       );
@@ -87,8 +112,7 @@ setTimeout(() => {
   var scoreLayer = game.createLayer('score');
   scoreLayer.static = true;
 
-  game.loadAndRun(function(elapsedTime, dt) {
-  });
+  game.loadAndRun(function(){});
 
 }, 1000);
 

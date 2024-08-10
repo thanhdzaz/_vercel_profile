@@ -19,7 +19,7 @@
     "devfools": "^0.2.1",
     "gsap": "^3.12.5",
     "postcss-custom-properties": "^13.3.4",
-    "sharp": "^0.33.3",
+    "sharp": "^0.33.4",
     "three": "^0.164.1",
     "yarn": "^1.22.21",
     "ytdl-core": "^4.11.5"
