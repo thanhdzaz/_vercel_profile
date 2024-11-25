@@ -15,7 +15,7 @@
       <div class="flex flex-1 flex-col text-[.7rem] font-bold text-black">
         <a class="line-clamp-2" :href="state.url" target="_blank">{{ state.title }}</a>
       </div>
-      <audio ref="audioEl" controls class="hidden" src="/Dion Timmer  The Best of Me Official.mp3" :autoplay="false" />
+      <audio ref="audioEl" controls class="hidden" src="/Sea of Tranquility_Audio_128k.m4a" :autoplay="false" />
       <canvas ref="canvasRef" class="h-[25px] w-[100px] sm:w-[120px]" />
       <div class="mr-[5px] flex gap-[10px] *:cursor-pointer">
         <div @click="togglePlay" class="[*>path]:fill-black *:w-[20px]">
@@ -97,8 +97,8 @@ onMounted(async () => {
 
   isReady.value = true;
 
-  state.track.src = data.url || `/Dion Timmer  The Best of Me Official.mp3`;
-  state.title = data.title || `Dion Timmer  The Best of Me Official`;
+  state.track.src = data.url || `/Sea of Tranquility_Audio_128k.m4a`;
+  state.title = data.title || `Sea of Tranquility`;
   state.thumbnail = data.thumbnail || `./doge_right.png`;
 });
 
