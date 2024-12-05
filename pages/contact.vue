@@ -14,7 +14,7 @@
         target="_blank"
         external
       >
-        <Facebook_invert class="!size-[17px] cursor-not-allowed" />
+        <Facebook_invert class="!size-[17px]" />
       </NuxtLink>
 
       <div title="I'm not available">
