@@ -8,9 +8,14 @@
       <a class="text-center" href="tel:+84966548626">+84 966548626</a>
     </div>
     <div class="mt-[10px] flex gap-[20px] [&>svg]:cursor-pointer">
-      <div title="I'm not available">
+      <NuxtLink
+        to="https://www.facebook.com/thanh.dz.az"
+        title="Facebook"
+        target="_blank"
+        external
+      >
         <Facebook_invert class="!size-[17px] cursor-not-allowed" />
-      </div>
+      </NuxtLink>
 
       <div title="I'm not available">
         <Twitter_invert class="!size-[17px] cursor-not-allowed" />
