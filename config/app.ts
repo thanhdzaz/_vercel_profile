@@ -12,8 +12,8 @@ export const navigation = [
     path: '/contact',
   },
   {
-    name: 'Demo',
-    path: '/crush',
+    name: 'Funds',
+    path: '/funds/list',
   },
   {
     name: 'Game',

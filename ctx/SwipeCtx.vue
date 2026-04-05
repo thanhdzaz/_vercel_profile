@@ -14,6 +14,7 @@ const route = useRoute();
 const { direction } = useSwipe(el);
 
 watch(direction, (val) => {
+  if (route.path.includes('funds')) return;
   const idxCurrent = _findIndex(navigation, { path: route.path });
   if (
     (idxCurrent === 0 && val === 'right') ||

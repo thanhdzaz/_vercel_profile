@@ -17,9 +17,10 @@
     "axios": "^1.6.7",
     "custom-vue-scrollbar": "^0.0.8",
     "devfools": "^0.2.1",
+    "firebase": "^12.11.0",
     "gsap": "^3.12.5",
     "postcss-custom-properties": "^13.3.4",
-    "sharp": "^0.33.4",
+    "sharp": "^0.34.5",
     "three": "^0.164.1",
     "yarn": "^1.22.21",
     "ytdl-core": "^4.11.5"

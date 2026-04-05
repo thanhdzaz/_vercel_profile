@@ -1,6 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    adminPassword: process.env.ADMIN_PASSWORD,
+    public: {
+      firebaseApiKey: process.env.FIREBASE_API_KEY,
+      firebaseAuthDomain: process.env.FIREBASE_AUTH_DOMAIN,
+      firebaseProjectId: process.env.FIREBASE_PROJECT_ID,
+      firebaseStorageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+      firebaseMessagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+      firebaseAppId: process.env.FIREBASE_APP_ID,
+      firebaseMeasurementId: process.env.FIREBASE_MEASUREMENT_ID,
+      adminPassword: process.env.ADMIN_PASSWORD ?? '1503',
+    },
+  },
   modules: [
     '@vite-pwa/nuxt',
     '@nuxtjs/tailwindcss',
@@ -98,7 +111,7 @@ export default defineNuxtConfig({
     devOptions: {
       enabled: true,
       suppressWarnings: false,
-      navigateFallback: 'index.html',
+      navigateFallback: '/',
       type: 'module',
     },
   },
@@ -113,16 +126,15 @@ export default defineNuxtConfig({
         },
         {
           name: 'description',
-          content:
-            'Sloppy - Web developer',
+          content: 'Sloppy - Web developer',
         },
       ],
       script: [
         {
           src: '/pixel.min.js',
           body: false,
-        }
-      ]
+        },
+      ],
     },
     pageTransition: { name: 'page', mode: 'default' },
     layoutTransition: { name: 'layout', mode: 'default' },
@@ -147,7 +159,10 @@ export default defineNuxtConfig({
     },
     storage: 'localStorage',
   },
-  plugins: [{ src: '~/plugins/scrollbar', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/scrollbar', mode: 'client' },
+    { src: '~/plugins/firebase.client', mode: 'client' },
+  ],
   site: {
     name: 'Sloppy',
   },
