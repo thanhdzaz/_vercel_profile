@@ -1,7 +1,7 @@
 <template>
-  <div class="flex min-h-screen flex-col justify-center bg-white px-6 py-12 dark:bg-transparent lg:px-8">
+  <div class="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8">
     <div class="mb-10 flex items-center justify-between">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Funds</h1>
+      <h1 class="text-4xl font-bold tracking-tight text-white">Funds</h1>
       <div v-if="loading" class="flex items-center gap-2 text-sm text-gray-500">
         <svg class="h-4 w-4 animate-spin text-indigo-500" viewBox="0 0 24 24">
           <circle
@@ -25,15 +25,15 @@
 
     <!-- Create Fund Form -->
     <div
-      class="mb-12 rounded-2xl bg-white p-8 shadow-xl dark:border dark:border-white/10 dark:bg-white/5 dark:backdrop-blur-md"
+      class="mb-12 rounded-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-md"
     >
-      <h2 class="mb-6 text-xl font-semibold text-gray-900 dark:text-white">Create New Fund</h2>
+      <h2 class="mb-6 text-xl font-semibold text-white">Create New Fund</h2>
       <form
         @submit.prevent="createFund"
         class="flex flex-col gap-6 sm:flex-row sm:items-end"
       >
         <div class="flex-1">
-          <label class="mb-2 block text-sm font-bold text-gray-400 dark:font-medium"
+          <label class="mb-2 block text-sm font-medium text-gray-400"
             >Fund Name</label
           >
           <input
@@ -42,11 +42,11 @@
             required
             :disabled="actionLoading"
             placeholder="Savings, Travel, etc."
-            class="block w-full rounded-xl border-0 bg-white px-4 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-100 transition-all focus:ring-2 focus:ring-inset focus:ring-indigo-500 disabled:opacity-50 dark:bg-white/10 dark:text-white dark:ring-white/10 sm:text-sm"
+            class="block w-full rounded-lg border-0 bg-white/10 px-4 py-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 transition-all focus:ring-2 focus:ring-inset focus:ring-indigo-500 disabled:opacity-50 sm:text-sm"
           />
         </div>
         <div class="flex-[1.5]">
-          <label class="mb-2 block text-sm font-bold text-gray-400 dark:font-medium"
+          <label class="mb-2 block text-sm font-medium text-gray-400"
             >Description</label
           >
           <input
@@ -54,13 +54,13 @@
             type="text"
             :disabled="actionLoading"
             placeholder="What is this fund for?"
-            class="block w-full rounded-xl border-0 bg-white px-4 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-100 transition-all focus:ring-2 focus:ring-inset focus:ring-indigo-500 disabled:opacity-50 dark:bg-white/10 dark:text-white dark:ring-white/10 sm:text-sm"
+            class="block w-full rounded-lg border-0 bg-white/10 px-4 py-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 transition-all focus:ring-2 focus:ring-inset focus:ring-indigo-500 disabled:opacity-50 sm:text-sm"
           />
         </div>
         <button
           type="submit"
           :disabled="actionLoading"
-          class="inline-flex h-[42px] items-center justify-center rounded-xl bg-indigo-500 px-8 text-sm font-bold text-white shadow-lg shadow-indigo-500/20 transition hover:bg-indigo-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-indigo-600 dark:hover:bg-indigo-500"
+          class="inline-flex h-[42px] items-center justify-center rounded-lg bg-indigo-600 px-8 text-sm font-bold text-white shadow-lg shadow-indigo-500/20 transition hover:bg-indigo-500 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <svg
             v-if="actionLoading"
@@ -82,12 +82,12 @@
       <div
         v-for="fund in funds"
         :key="fund.id"
-        class="group relative flex cursor-pointer flex-col justify-between rounded-2xl bg-white p-6 shadow-sm ring-1 ring-inset ring-gray-100 transition-all hover:shadow-xl dark:border dark:border-white/10 dark:bg-white/5 dark:ring-0 dark:hover:border-white/20 dark:hover:bg-white/[0.08] dark:hover:shadow-2xl"
+        class="group relative flex cursor-pointer flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 transition-all hover:border-white/20 hover:bg-white/[0.08] hover:shadow-2xl"
         @click="$router.push(`/funds/${fund.id}`)"
       >
         <button
           @click.stop="deleteFund(fund.id)"
-          class="absolute right-4 top-4 z-10 translate-x-2 translate-y-[-2px] rounded-lg p-2 text-gray-400 opacity-0 transition-all hover:bg-red-50 hover:text-red-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 dark:text-gray-500 dark:hover:bg-red-500/10 dark:hover:text-red-400"
+          class="absolute right-4 top-4 z-10 translate-x-2 translate-y-[-2px] rounded-md p-2 text-gray-500 opacity-0 transition-all hover:bg-red-500/10 hover:text-red-400 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
           title="Delete Fund"
         >
           <svg
@@ -105,16 +105,16 @@
 
         <div class="flex min-w-0 flex-col">
           <p
-            class="text-xl font-bold leading-7 text-gray-900 transition-colors group-hover:text-indigo-500 dark:text-white dark:group-hover:text-indigo-400"
+            class="text-xl font-bold leading-7 text-white transition-colors group-hover:text-indigo-400"
           >
             {{ fund.name }}
           </p>
-          <p class="mt-2 line-clamp-2 text-sm leading-6 text-gray-500 dark:text-gray-400">
+          <p class="mt-2 line-clamp-2 text-sm leading-6 text-gray-400">
             {{ fund.description || 'No description provided' }}
           </p>
         </div>
         <div
-          class="mt-6 flex items-center text-xs font-bold uppercase tracking-widest text-indigo-500 transition-transform group-hover:translate-x-1 dark:text-indigo-400"
+          class="mt-6 flex items-center text-xs font-bold uppercase tracking-widest text-indigo-400 transition-transform group-hover:translate-x-1"
         >
           View details
           <svg class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -143,7 +143,7 @@
       <div
         v-for="i in 4"
         :key="i"
-        class="mx-auto h-40 w-full animate-pulse rounded-2xl bg-gray-200 dark:border dark:border-white/5 dark:bg-white/5"
+        class="mx-auto h-40 w-full animate-pulse rounded-2xl border border-white/5 bg-white/5"
       ></div>
     </div>
   </div>
