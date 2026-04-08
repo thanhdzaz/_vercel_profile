@@ -14,3 +14,7 @@ export const rmTextNodeHelper = (nodes: NodeListOf<ChildNode>): ChildNode[] => {
   });
   return result;
 };
+
+export const toVndDot = (value: number) => {
+  return value.toLocaleString('vi-VN');
+};

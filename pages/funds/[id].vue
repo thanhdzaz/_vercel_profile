@@ -6,8 +6,18 @@
           @click="$router.push('/funds/list')"
           class="rounded-full p-2 text-gray-400 transition hover:bg-white/10 hover:text-white"
         >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+            />
           </svg>
         </button>
         <div>
@@ -15,30 +25,47 @@
             v-if="loading && !fund"
             class="mb-2 h-8 w-48 animate-pulse rounded bg-white/10"
           ></div>
-          <h1 v-else class="text-3xl font-bold tracking-tight text-white line-clamp-1">
+          <h1
+            v-else
+            class="line-clamp-1 text-3xl font-bold tracking-tight text-white"
+          >
             {{ fund?.name }}
           </h1>
           <div
             v-if="loading && !fund"
             class="h-4 w-64 animate-pulse rounded bg-white/10"
           ></div>
-          <p v-else class="mt-1 text-sm text-gray-400 line-clamp-1">{{ fund?.description }}</p>
+          <p v-else class="mt-1 line-clamp-1 text-sm text-gray-400">
+            {{ fund?.description }}
+          </p>
         </div>
       </div>
       <div class="flex items-center gap-8">
         <div class="text-right">
-          <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">
+          <p
+            class="text-xs font-semibold uppercase tracking-wider text-gray-500"
+          >
             Total Amount
           </p>
-          <p class="text-2xl font-bold text-indigo-400">${{ totalAmount }}</p>
+          <p class="text-2xl font-bold text-indigo-400">
+            ${{ toVndDot(totalAmount || 0) }}
+          </p>
         </div>
         <button
           @click="handleDeleteFund"
           class="rounded-lg border border-red-500/20 bg-red-500/10 p-2.5 text-red-400 transition-all hover:bg-red-500 hover:text-white"
           title="Delete this Fund"
         >
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"></path>
+          <svg
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
+            ></path>
           </svg>
         </button>
       </div>
@@ -115,7 +142,9 @@
     </div>
 
     <!-- Funds Table -->
-    <div class="overflow-x-auto rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm custom-scrollbar">
+    <div
+      class="custom-scrollbar overflow-x-auto rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm"
+    >
       <table class="min-w-full divide-y divide-white/10 text-left">
         <thead class="bg-white/5">
           <tr>
@@ -170,7 +199,7 @@
             <td
               class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium text-white"
             >
-              ${{ entry.amount }}
+              ${{ toVndDot(entry.amount || 0) }}
             </td>
             <td class="px-6 py-4 text-right">
               <button
@@ -227,9 +256,7 @@ const newEntry = reactive({
 });
 
 const totalAmount = computed(() => {
-  return fundEntries.value
-    .reduce((acc, curr) => acc + curr.amount, 0)
-    .toFixed(2);
+  return fundEntries.value.reduce((acc, curr) => acc + curr.amount, 0);
 });
 
 const loadFundData = async () => {
@@ -285,7 +312,12 @@ const deleteEntry = async (entryId: string | undefined) => {
 };
 
 const handleDeleteFund = async () => {
-  if (!confirm('Are you sure you want to delete this fund? This will not delete the sub-collections, but this entry will disappear from your main list.')) return;
+  if (
+    !confirm(
+      'Are you sure you want to delete this fund? This will not delete the sub-collections, but this entry will disappear from your main list.',
+    )
+  )
+    return;
 
   actionLoading.value = true;
   try {
