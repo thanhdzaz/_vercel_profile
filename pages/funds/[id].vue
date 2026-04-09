@@ -96,12 +96,12 @@
         </div>
         <div>
           <label class="mb-1 block text-xs font-medium text-gray-400"
-            >Amount</label
+            >Amount ({{ toVndDot(newEntry.amount) }} VND)</label
           >
           <input
             v-model.number="newEntry.amount"
             type="number"
-            step="0.01"
+            step="1000"
             required
             :disabled="actionLoading"
             placeholder="0.00"
@@ -119,12 +119,12 @@
               required
               :disabled="actionLoading"
               placeholder="Lunch, Rent, etc."
-              class="block w-full rounded-md border border-gray-100 bg-white/10 px-2 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 transition-all focus:ring-2 focus:ring-inset focus:ring-indigo-500 disabled:opacity-50 dark:border-0 sm:text-sm"
+              class="block w-full rounded-md border border-gray-100 bg-white/10 px-2 py-1.5 text-gray-800 shadow-sm ring-1 ring-inset ring-white/10 transition-all focus:ring-2 focus:ring-inset focus:ring-indigo-500 disabled:opacity-50 dark:border-0 dark:text-white sm:text-sm"
             />
             <button
               type="submit"
               :disabled="actionLoading"
-              class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-indigo-500/20 transition hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-50"
+              class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-1.5 text-sm font-semibold text-white shadow-sm shadow-indigo-500/20 transition hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-50"
             >
               <svg
                 v-if="actionLoading"
@@ -287,7 +287,7 @@ const loadFundData = async () => {
 };
 
 const addFundEntry = async () => {
-  if (newEntry.amount <= 0 || !newEntry.reason) return;
+  if (typeof newEntry.amount !== 'number' || !newEntry.reason) return;
 
   actionLoading.value = true;
   try {
